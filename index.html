@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .mainCnt{
+            width: 100%;
+            height: fit-content;
+        }
+        .up{
+            width: 100%;
+            height:fit-content;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            gap: 10px;;
+        }
+        .up img{
+            width: 20%;
+        }
+        .up input{
+            width: 40%;
+            height: 40px;
+            padding: 15px;
+            border-radius: 15px;
+            background-color: rgb(246, 209, 246);
+        }
+        .up input:focus{
+            outline: none;
+            background-color: lavenderblush ;
+            transition: all 0.5s ease-in-out;
+        }
+        ::placeholder{
+            color: #000000;
+            font-weight: 700;
+        }
+        #searchRes{
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap; 
+            gap :20px;
+            margin-top: 40px;
+        }
+        .card{
+            width: 25%;
+            height: fit-content;
+            padding: 10px;
+            border : 1.5px solid #000000;
+            border-radius: 15px;
+            background-color: rgb(230, 208, 235);
+        }
+    </style>
+</head>
+<body>
+    <div class="mainCnt">
+        <div class="up" >
+            <img src="data:image/png;base64,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" alt="">
+            <input type="search" name="search" id="searchbar" placeholder="Enter anything ....">
+        </div>
+        <div id="searchRes">
+
+        </div>
+    </div>
+    <script>
+        let searchbar = document.getElementById('searchbar');
+        let searchRes = document.getElementById('searchRes');
+        
+
+        
+        searchbar.addEventListener('change', (e)=>{
+            let search = e.target.value;
+            myFunction(`https://apis.ccbp.in/wiki-search?search=${search}`)
+      });
+
+        
+        async function myFunction(url) {
+            let response = await fetch(url)
+            try {
+                if (response.status === 200) {
+                    let data = await response.json()
+                    DisplayData(data.search_results)
+                }
+            } catch (error) {
+                console.error
+            }
+            
+        }
+        
+
+        function DisplayData(array_data){
+            let input=""
+            array_data.map((val)=>{
+                console.log(val)
+                let title=val.title;
+                let link = val.link;
+                let para = val.description;
+                console.log(title,link,para)
+                input=input+`
+                <div class="card">
+                    <a href=${link} target="_blank"> <h2>${title}</h2></a>
+                    <a href=${link} target="_blank">${link}</a>
+                    <p> ${para}</p>
+                    </div>
+                `
+                console.log(input)
+                searchRes.innerHTML=input;
+            })
+        }
+    </script>
+</body>
+</html>
